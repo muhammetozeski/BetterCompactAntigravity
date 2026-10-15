@@ -1,0 +1,15 @@
+bin/
+obj/
+publish/
+.vs/
+.idea/
+*.user
+*.suo
+*.pfx
+PFX-PAROLA.txt
+Imzalama.pfx
+SignatureTrust.zip
+*.log
+UserData/
+AppCache/
+UserCache/

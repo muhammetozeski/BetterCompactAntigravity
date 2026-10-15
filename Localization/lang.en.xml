@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<strings>
+  <LanguageName>English</LanguageName>
+  <s name="AppTitle">BetterCompact Antigravity</s>
+  <s name="AppDescription">Exports an Antigravity conversation to Markdown and counts tool traffic.</s>
+  <s name="SettingLanguage">Language</s>
+  <s name="LanguageSystem">Follow Windows</s>
+  <s name="HelpTitle">BetterCompact Antigravity - exports an Antigravity conversation to Markdown.</s>
+  <s name="HelpUsage">Usage: BetterCompactAntigravity &lt;conversation-id|conversation.db&gt; [-o &lt;output.md|folder&gt;]</s>
+  <s name="HelpInput">Input: an Antigravity conversation ID or its SQLite file under conversations.</s>
+  <s name="HelpOutput">-o: a Markdown file or output folder.</s>
+  <s name="HelpDefaultOutput">Default output: UserData/Conversations beside the program.</s>
+  <s name="InputRequired">An Antigravity conversation ID or database path is required.</s>
+  <s name="OutputPathRequired">The -o option needs an output path.</s>
+  <s name="UnknownOption">Unknown option: {0}. Run --help to see usage.</s>
+  <s name="OneInputOnly">Only one conversation input is accepted.</s>
+  <s name="InputPrompt">Enter the Antigravity conversation ID or .db path: </s>
+  <s name="OutputPrompt">Markdown file or folder path (blank uses the default location): </s>
+  <s name="NoInput">No input was provided.</s>
+  <s name="NoConversation">Conversation record not found: {0}</s>
+  <s name="NoMessages">No exportable messages were found in the conversation database.</s>
+  <s name="DatabaseOpenFailed">Could not open database: {0}\n{1}</s>
+  <s name="SqliteOpenFailed">The Windows SQLite library could not open the database.</s>
+  <s name="SqliteUnknownError">The SQLite operation failed.</s>
+  <s name="SummaryDatabaseMissing">Antigravity conversation summary database not found: {0}</s>
+  <s name="HelpNotAvailable">Run with --help for usage.</s>
+  <s name="Reading">Reading Antigravity conversation: {0}</s>
+  <s name="Written">Markdown written to: {0}</s>
+  <s name="Failed">The operation could not be completed: {0}</s>
+  <s name="KeptHeading">  kept</s>
+  <s name="UserCount">    user messages     {0}</s>
+  <s name="ReplyCount">    assistant replies  {0}</s>
+  <s name="DroppedHeading">  dropped</s>
+  <s name="ToolCount">    tool steps         {0}</s>
+  <s name="ActivityCount">    task/activity     {0}</s>
+  <s name="GenerationCount">    generation steps  {0}</s>
+  <s name="SummaryCount">    context summaries {0}</s>
+  <s name="StepCount">    total steps        {0}</s>
+  <s name="SizeSummary">{0} -&gt; {1} ({2}% of the original)</s>
+  <s name="SessionLabel">Conversation</s>
+  <s name="LastActivityLabel">Last activity</s>
+  <s name="UserHeading">## User</s>
+  <s name="AssistantHeading">## Antigravity</s>
+  <s name="ToolActivityFormat">{0} tool calls</s>
+</strings>
