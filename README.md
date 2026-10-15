@@ -29,6 +29,10 @@ Antigravity stores conversation databases under `%USERPROFILE%\.gemini\antigravi
 - An Antigravity profile with the conversation database and summary database available locally.
 - The application uses the Windows `winsqlite3.dll` system library; it does not install NuGet packages or modify Antigravity databases.
 
+## Download and install
+
+Download [BetterCompactAntigravity.exe](https://github.com/muhammetozeski/BetterCompactAntigravity/releases/latest/download/BetterCompactAntigravity.exe) from the latest release. This is the framework-dependent build and needs the .NET 10 runtime. The executable is digitally signed. To let Windows verify the signature, run `Install-Certificate.cmd` from `SignatureTrust.zip` once. The program runs without it; only the signature stays unverified.
+
 ## Building
 
 ```powershell
