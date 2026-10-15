@@ -118,7 +118,8 @@ sealed class ConversationReader
             {
                 throw new InvalidDataException($"Conversation text offset {offset.ByteOffset} does not align to a UTF-8 character boundary.", exception);
             }
-            if (text.Length > 0) yield return new TranscriptMessage(offset.StepIndex, kind, text);
+            if (kind == MessageKind.User || !string.IsNullOrWhiteSpace(text))
+                yield return new TranscriptMessage(offset.StepIndex, kind, text);
         }
     }
 
@@ -167,7 +168,7 @@ sealed class ConversationReader
             }
             if (pendingTools > 0)
             {
-                result.Add(new TranscriptMessage(message.StepIndex, MessageKind.ToolActivity, string.Format(Strings.ToolActivityFormat, pendingTools)));
+                result.Add(new TranscriptMessage(message.StepIndex, MessageKind.ToolActivity, string.Empty, pendingTools));
                 pendingTools = 0;
             }
             result.Add(message);
@@ -178,7 +179,7 @@ sealed class ConversationReader
             pendingTools++;
             toolIndex++;
         }
-        if (pendingTools > 0) result.Add(new TranscriptMessage(int.MaxValue, MessageKind.ToolActivity, string.Format(Strings.ToolActivityFormat, pendingTools)));
+        if (pendingTools > 0) result.Add(new TranscriptMessage(int.MaxValue, MessageKind.ToolActivity, string.Empty, pendingTools));
         return result;
     }
 

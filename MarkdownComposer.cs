@@ -28,20 +28,45 @@ static class MarkdownComposer
         builder.AppendLine("---");
         builder.AppendLine();
 
-        foreach (TranscriptMessage message in document.Messages)
+        int index = 0;
+        while (index < document.Messages.Count)
         {
-            if (message.Kind == MessageKind.ToolActivity)
+            TranscriptMessage message = document.Messages[index];
+            if (message.Kind == MessageKind.User)
             {
-                builder.AppendLine($"> {message.Text}");
-                builder.AppendLine();
+                AppendMessage(builder, Strings.UserHeading, message.Text);
+                index++;
                 continue;
             }
 
-            builder.AppendLine(message.Kind == MessageKind.User ? Strings.UserHeading : Strings.AssistantHeading);
-            builder.AppendLine();
-            builder.AppendLine(message.Text);
-            builder.AppendLine();
+            List<string> replies = [];
+            int toolCalls = 0;
+            while (index < document.Messages.Count && document.Messages[index].Kind != MessageKind.User)
+            {
+                TranscriptMessage part = document.Messages[index++];
+                if (part.Kind == MessageKind.ToolActivity)
+                    toolCalls += part.ActivityCount;
+                else if (!string.IsNullOrWhiteSpace(part.Text))
+                    replies.Add(part.Text);
+            }
+
+            if (toolCalls > 0)
+            {
+                builder.AppendLine($"> {string.Format(Strings.ToolActivityFormat, toolCalls)}");
+                builder.AppendLine();
+            }
+
+            if (replies.Count > 0)
+                AppendMessage(builder, Strings.AssistantHeading, string.Join(Environment.NewLine + Environment.NewLine, replies));
         }
         return builder.ToString();
+    }
+
+    static void AppendMessage(StringBuilder builder, string heading, string text)
+    {
+        builder.AppendLine(heading);
+        builder.AppendLine();
+        builder.AppendLine(text);
+        builder.AppendLine();
     }
 }

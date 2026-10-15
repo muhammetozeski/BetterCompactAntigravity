@@ -5,7 +5,7 @@
 [![Platform](https://img.shields.io/badge/platform-Windows-0078D6)](#usage)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-Exports the user messages and Antigravity replies from one Antigravity conversation database to Markdown. Tool steps, task activity, generation steps and context summaries are counted in the header instead of copied into the transcript.
+Exports the user messages and Antigravity replies from one Antigravity conversation database to Markdown. Consecutive Antigravity replies are combined under one heading, with their tool-call counts combined into one line. Tool steps, task activity, generation steps and context summaries are counted in the header instead of copied into the transcript.
 
 The message text comes from Antigravity's indexed conversation content and is written without paraphrasing or shortening. The database is opened read-only. The Markdown file is the only output written by the conversion.
 

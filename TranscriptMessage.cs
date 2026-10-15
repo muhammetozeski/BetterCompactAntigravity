@@ -6,7 +6,8 @@ namespace BetterCompactAntigravity;
 /// <param name="StepIndex">The source step that began the message.</param>
 /// <param name="Kind">Whether the text came from the user or Antigravity.</param>
 /// <param name="Text">The message body from Antigravity's searchable conversation record.</param>
-sealed record TranscriptMessage(int StepIndex, MessageKind Kind, string Text);
+/// <param name="ActivityCount">The number of tool calls represented by a tool activity marker.</param>
+sealed record TranscriptMessage(int StepIndex, MessageKind Kind, string Text, int ActivityCount = 0);
 
 /// <summary>
 /// Identifies the speaker for one retained conversation message.
